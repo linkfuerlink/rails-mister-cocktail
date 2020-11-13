@@ -1,29 +1,27 @@
 <div class="container mt-5">
   <p id="notice"><%= notice %></p>
 
-  <p>
-    <strong>Name:</strong>
-    <%= @cocktail.name %>
-  </p>
+    <h1><strong><%= @cocktail.name %></h1></strong>
 
   <p>
-    <strong>Ingredients:</strong>
-    <%= @cocktail.ingredients %>
-  </p>
-
-  <% @cocktail.doses.each do |dose| %>
-  <p><%= dose.description %></p>
-  <p><%= dose.ingredient.name %></p>
-  <% end %>
+    <ul>
+    <% @cocktail.doses.each do |dose| %>
+      <li>Desciption: <%= dose.description %></li>
+      <li>Ingredient: <%= dose.ingredient.name %></li>
+      <br>
+    <% end %>
+    </ul>
   <hr>
+  </p>
+
 
   <div class="container mt-5 mb-5">
-    <h1>New Dose for <%= @cocktail.name %></h1>
+    <h3>What shall we add for <%= @cocktail.name %> 🍹 ?</h3>
 
     <%= simple_form_for([@cocktail, @dose]) do |f| %>
       <div class="form-inputs">
         <%= f.input :description %>
-        <%= f.input :ingredient, collection: @ingredients %>
+        <%= f.association :ingredient %>
       </div>
 
       <div class="form-actions">
