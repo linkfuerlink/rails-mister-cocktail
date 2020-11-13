@@ -5,3 +5,18 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+#require "open-uri"
+#parse json
+#ruby hash
+#ingredients samplen
+
+puts "Cleaning database now..."
+Ingredient.destroy_all
+puts "Database clean ✅"
+
+Ingredient.create(name: "lemon")
+Ingredient.create(name: "ice")
+Ingredient.create(name: "mint leaves")
+
+
+puts "Done! Created some ingredients"
